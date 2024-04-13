@@ -1,0 +1,42 @@
+
+
+header p{
+    color:rgb(2, 2, 2);
+    font-weight: 600;
+}
+
+
+h1{
+    font-size: 50px;
+    color:rgb(0, 0, 0);
+    padding: 15px;
+    color:rgb(7, 7, 6);
+    text-align: center;
+}
+
+h2{
+    font-size: 24px;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+
+
+.carousel-caption h5{
+    font-size: 40px;
+    color:rgb(209, 132, 32);
+    text-shadow: 2px 2px 2px black;
+
+}
+
+button{
+    font-size: 30px;
+    margin-top: 0px;
+    margin-left: 0px;
+    background-color: transparent;
+    border:rgb(7, 7, 7)
+}
+
+body{
+    background-color: rgb(243, 193, 85);
+}
