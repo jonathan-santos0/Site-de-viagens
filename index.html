@@ -7,6 +7,63 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Rota Global</title>
+
+    <script>
+   
+      function calculateTripDuration() {
+          const startDate = new Date(document.querySelector('#dataIda').value);
+          const endDate = new Date(document.querySelector('#dataVolta').value);
+          const duration = Math.floor((endDate - startDate) / (1000 * 60 * 60 * 24));
+          alert("A duração da sua viagem é de " + duration + " dias.");
+      }
+  
+
+      function validateForm() {
+          const form = document.querySelector('form');
+          form.addEventListener('submit', function(event) {
+              const name = document.querySelector('#nome').value;
+              const email = document.querySelector('#email').value;
+              if (!name || !email) {
+                  alert("Por favor, preencha todos os campos do formulário.");
+                  event.preventDefault();
+              }
+          });
+      }
+  
+      function filterTravelPackages() {
+          const maxPrice = prompt("Qual é o preço máximo que você está disposto a pagar?");
+          const travelPackages = document.querySelectorAll('.travel-package');
+          travelPackages.forEach(function(package) {
+              const price = Number(package.querySelector('.price').textContent.replace('R$', ''));
+              if (price > maxPrice) {
+                  package.style.display = 'none';
+              }
+          });
+      }
+  
+      function saveFormData() {
+          const form = document.querySelector('form');
+          form.addEventListener('submit', function(event) {
+              const name = document.querySelector('#nome').value;
+              const email = document.querySelector('#email').value;
+              localStorage.setItem('name', name);
+              localStorage.setItem('email', email);
+          });
+      }
+  
+  
+    
+      window.onload = function() {
+          const calculateButton = document.querySelector('.calculate-button');
+          calculateButton.addEventListener('click', calculateTripDuration);
+  
+          const filterButton = document.querySelector('.filter-button');
+          filterButton.addEventListener('click', filterTravelPackages);
+  
+          validateForm();
+          saveFormData();
+      }
+      </script>
     
 </head>
 <body>
@@ -147,6 +204,7 @@ Então, prepare-se para embarcar em uma jornada de descoberta e aventura conosco
               </div>
         </div><br>
       
+        <button class="btn btn-primary filter-button">Filtrar pacotes de viagem</button>
     </section>
    
     <section class="container-fluid bg-warning text-xl-center">
@@ -196,7 +254,7 @@ Então, prepare-se para embarcar em uma jornada de descoberta e aventura conosco
                     <label class="form-label" for="dataVolta" >Data de volta</label>
                 <input type="date" class="form-control" name="dataVolta" id="dataVolta"><br>
                 </div>
-                
+                <button class="btn btn-primary calculate-button">Calcular duração da viagem</button>
             </fieldset>
 
             <fieldset>
@@ -215,7 +273,7 @@ Então, prepare-se para embarcar em uma jornada de descoberta e aventura conosco
                     <input type="checkbox" class="form-check-input" name="reservaVeiculos" value="Reserva de veiculos" id="reservaVeiculos">
                     <label class="form-check-label" for="reservaVeiculos">Reserva de veículos</label>
                 </div>
-               
+                
             </fieldset>
             <br>
             <button class="btn btn-secondary">Salvar</button>
