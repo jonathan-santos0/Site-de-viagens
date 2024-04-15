@@ -18,17 +18,6 @@
       }
   
 
-      function validateForm() {
-          const form = document.querySelector('form');
-          form.addEventListener('submit', function(event) {
-              const name = document.querySelector('#nome').value;
-              const email = document.querySelector('#email').value;
-              if (!name || !email) {
-                  alert("Por favor, preencha todos os campos do formulário.");
-                  event.preventDefault();
-              }
-          });
-      }
   
       function filterTravelPackages() {
           const maxPrice = prompt("Qual é o preço máximo que você está disposto a pagar?");
@@ -41,15 +30,6 @@
           });
       }
   
-      function saveFormData() {
-          const form = document.querySelector('form');
-          form.addEventListener('submit', function(event) {
-              const name = document.querySelector('#nome').value;
-              const email = document.querySelector('#email').value;
-              localStorage.setItem('name', name);
-              localStorage.setItem('email', email);
-          });
-      }
   
   
     
