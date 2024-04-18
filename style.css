@@ -37,6 +37,8 @@ button{
     border:rgb(7, 7, 7)
 }
 
-body{
-    background-color: rgb(243, 193, 85);
-}
+.carousel-inner > .carousel-item > img {
+    width: 1000px;
+    height: 563px; 
+  }
+
